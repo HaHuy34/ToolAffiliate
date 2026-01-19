@@ -12,6 +12,16 @@ const App: React.FC = () => {
     setHistory(prev => [image, ...prev]);
   };
 
+  const deleteHistoryItem = (timestamp: number) => {
+    setHistory(prev => prev.filter(item => item.timestamp !== timestamp));
+  };
+
+  const clearHistory = () => {
+    if (window.confirm('Are you sure you want to clear all history?')) {
+      setHistory([]);
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <StudioHeader />
@@ -20,11 +30,15 @@ const App: React.FC = () => {
           <FashionStudio onGenerationComplete={addToHistory} />
         </div>
         <div className="lg:w-80">
-          <HistoryPanel history={history} />
+          <HistoryPanel 
+            history={history} 
+            onDeleteItem={deleteHistoryItem} 
+            onClearAll={clearHistory}
+          />
         </div>
       </main>
       <footer className="bg-white border-t py-6 text-center text-gray-500 text-sm">
-        <p>&copy; 2024 K-Fashion Mini Studio. Powered by Gemini 2.5 Flash Image.</p>
+        <p>&copy; 2026 - Tool Affiliate Fashion By HuyHa</p>
       </footer>
     </div>
   );
