@@ -1,0 +1,5 @@
+{
+  "name": "K-Fashion Mini Studio",
+  "description": "A professional-grade fashion image generator that visualizes clothing products on children with realistic proportions and Korean-style aesthetics using Gemini 2.5 Flash Image.",
+  "requestFramePermissions": []
+}
